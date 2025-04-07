@@ -6,7 +6,7 @@ spring:
     add-properties: true
   datasource:
     driverClassName: org.postgresql.Driver
-    url: "jdbc:postgresql://localhost:5432/backend_service"
+    url: "jdbc:postgresql://localhost:5432/book-store"
     username: "postgres"
     password: "superuser"
   jpa:
@@ -16,4 +16,4 @@ spring:
     #    generate-ddl: false
     #    open-in-view: false
     hibernate:
-      ddl-auto: none
+      ddl-auto: update
