@@ -1,0 +1,25 @@
+server:
+  port: 8080
+
+
+spring:
+  application:
+    name: backend-service
+  profiles:
+    active: dev
+#@spring.profiles.active@
+
+# mở full endpoints của spring actuator
+management:
+  security:
+    enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+# giới hạn mức log (chỉ trả ra info cần thiết)
+logging:
+  level:
+    root: INFO
+    web: INFO
