@@ -1,0 +1,15 @@
+services:
+
+
+networks:
+  default:
+    name: base-project
+
+volumes:
+  netdataconfig:
+  netdatalib:
+  netdatacache:
+  mysql_data:
+  grafana:
+  postgres:
+    driver: local

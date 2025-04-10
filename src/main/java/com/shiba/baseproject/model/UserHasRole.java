@@ -5,6 +5,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 import java.io.Serializable;
 
@@ -15,12 +16,13 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Builder
 @Table(name = "tbl_user_has_role")
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class UserHasRole extends AbstractEntity<Long> implements Serializable {
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private User user;
+    User user;
     @ManyToOne
     @JoinColumn(name = "role_id")
-    private Role role;
+    Role role;
 
 }
