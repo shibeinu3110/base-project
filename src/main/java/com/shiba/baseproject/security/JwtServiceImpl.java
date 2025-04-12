@@ -60,6 +60,12 @@ public class JwtServiceImpl implements JwtService{
         log.info("Extracting username from token: {}", token);
         return extractClaim(token, type, Claims::getSubject);
     }
+    @Override
+    public String extractRoles(String token, TokenType type) {
+        log.info("Extracting roles from token: {}", token);
+
+        return extractClaim(token, type, claims -> claims.get("roles").toString());
+    }
 
     @Override
     public boolean isValidToken(String token, TokenType type, UserDetails userDetails) {
@@ -77,6 +83,7 @@ public class JwtServiceImpl implements JwtService{
             throw new IllegalArgumentException("Invalid token type: " + type);
         }
     }
+
 
     private boolean isTokenExpired(String token, TokenType tokenType) {
         log.info("Checking if token is expired: {}", token);

@@ -1,6 +1,8 @@
 package com.shiba.baseproject.config;
 
 import com.shiba.baseproject.security.CustomizedRequestFilter;
+import com.shiba.baseproject.security.JwtAccessDeniedController;
+import com.shiba.baseproject.security.JwtAuthenticationEntryPoint;
 import com.shiba.baseproject.security.MyUserDetailsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -36,6 +38,11 @@ public class AppConfig {
         http.csrf(AbstractHttpConfigurer::disable) // disable login interface
                 .authorizeHttpRequests(request -> request.requestMatchers("/api/v1/auth/**").permitAll()
                         .anyRequest().authenticated())
+                .exceptionHandling(exception -> exception
+                        .authenticationEntryPoint(new JwtAuthenticationEntryPoint())
+                        .accessDeniedHandler(new JwtAccessDeniedController())
+
+                )
                 .sessionManagement(session -> session.sessionCreationPolicy(STATELESS))
                 .authenticationProvider(authenticationProvider()).addFilterBefore(customizedRequestFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
