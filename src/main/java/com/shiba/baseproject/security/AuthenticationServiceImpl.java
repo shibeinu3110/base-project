@@ -1,5 +1,7 @@
 package com.shiba.baseproject.security;
 
+import com.shiba.baseproject.common.exception.ErrorMessages;
+import com.shiba.baseproject.common.exception.StandardException;
 import com.shiba.baseproject.dto.request.SignUpRequest;
 import com.shiba.baseproject.dto.response.TokenResponse;
 import com.shiba.baseproject.model.Role;
@@ -63,7 +65,7 @@ public class AuthenticationServiceImpl implements AuthenticationService{
         } catch (AuthenticationException e) {
             log.info("Authentication failed for user: {}", signInRequest.getUsername());
             log.info("Exception: {}", e.getMessage());
-            throw new RuntimeException(e);
+            throw new StandardException(ErrorMessages.UNAUTHENTICATED, "Invalid username or password");
         }
 
         // var user = userRepository.findByUsername(signInRequest.getUsername());

@@ -1,6 +1,8 @@
 package com.shiba.baseproject.security;
 
 import com.shiba.baseproject.common.enumerate.TokenType;
+import com.shiba.baseproject.common.exception.ErrorMessages;
+import com.shiba.baseproject.common.exception.StandardException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -41,7 +43,7 @@ public class CustomizedRequestFilter extends OncePerRequestFilter {
             } catch (Exception e) {
                 log.info("Exception: {}", e.getMessage());
 
-                throw new RuntimeException(e);
+                throw new StandardException(ErrorMessages.COMMON_ERROR, e.getMessage());
             }
 
             UserDetails userDetails = myUserDetailsService.loadUserDetailsService().loadUserByUsername(username);

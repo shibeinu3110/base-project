@@ -1,14 +1,10 @@
 package com.shiba.baseproject.controller;
 
 import com.shiba.baseproject.common.StandardResponse;
-import com.shiba.baseproject.dto.request.SignUpRequest;
-import com.shiba.baseproject.dto.response.TokenResponse;
-import com.shiba.baseproject.security.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;
-
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

@@ -6,11 +6,9 @@ import com.shiba.baseproject.common.exception.StandardException;
 import com.shiba.baseproject.common.suberror.ApiSubError;
 import com.shiba.baseproject.utils.DateHelper;
 import lombok.AccessLevel;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.FieldDefaults;
-
 
 import java.time.LocalDateTime;
 import java.util.Collection;

@@ -26,7 +26,8 @@ public enum ErrorMessages implements ErrorMessage {
     NOT_ALLOW(101, "manager are not allowed to do this"),
     UNAUTHENTICATED(401, "Unauthenticated"),
     FORBIDDEN(403, "Unauthorized"),
-    NOT_ALLOW_LEADER(102, "this leader is not allowed to handle this")
+    NOT_ALLOW_LEADER(102, "this leader is not allowed to handle this"),
+    COMMON_ERROR(500, "Common error")
     ;
 
     int code;
